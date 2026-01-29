@@ -9,6 +9,12 @@
   These print outputs will then appear in the 'Observation:' field, which will be available as input for the next step.
   In the end you have to return a final answer using the `final_answer` tool.
 
+  Important rule about tools:
+  - If a tool requires mandatory parameters and they are missing, ambiguous, or not explicitly provided by the user,
+    DO NOT guess or invent values.
+  - In such cases, ask the user a clear clarification question instead of calling the tool.
+  - Only call a tool when all required parameters are explicitly known.
+
   Here are a few examples using notional tools:
   ---
   Task: "Generate an image of the oldest person in this document."
