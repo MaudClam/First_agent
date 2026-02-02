@@ -1,4 +1,3 @@
-from typing import Any, Optional
 from smolagents.tools import Tool
 
 class VisitWebpageTool(Tool):
@@ -38,6 +37,3 @@ class VisitWebpageTool(Tool):
             return f"Error fetching the webpage: {str(e)}"
         except Exception as e:
             return f"An unexpected error occurred: {str(e)}"
-
-    def __init__(self, *args, **kwargs):
-        self.is_initialized = False
