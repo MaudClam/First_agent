@@ -1,6 +1,5 @@
 from typing import Any, Optional
 from smolagents.tools import Tool
-import ddgs
 
 class DuckDuckGoSearchTool(Tool):
     name = "web_search"
@@ -15,7 +14,7 @@ class DuckDuckGoSearchTool(Tool):
             from ddgs import DDGS
         except ImportError as e:
             raise ImportError(
-                "You must install package `duckduckgo_search` to run this tool: for instance run `pip install duckduckgo-search`."
+                "You must install package `ddgs` to run this tool: for instance run `pip install ddgs`."
             ) from e
         self.ddgs = DDGS(**kwargs)
 
