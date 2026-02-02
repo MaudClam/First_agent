@@ -1,8 +1,5 @@
 from typing import Any, Optional
 from smolagents.tools import Tool
-import requests
-import markdownify
-import smolagents
 
 class VisitWebpageTool(Tool):
     name = "visit_webpage"
@@ -12,6 +9,7 @@ class VisitWebpageTool(Tool):
 
     def forward(self, url: str) -> str:
         try:
+            import re
             import requests
             from markdownify import markdownify
             from requests.exceptions import RequestException
