@@ -5,6 +5,7 @@ import pytz
 import yaml
 from tools.final_answer import FinalAnswerTool
 from tools.web_search import DuckDuckGoSearchTool
+from tools.visit_webpage import VisitWebpageTool
 
 from Gradio_UI import GradioUI
 
@@ -37,6 +38,7 @@ def get_current_time_in_timezone(timezone: str) -> str:
 
 final_answer = FinalAnswerTool()
 web_search = DuckDuckGoSearchTool(max_results=10)
+visit_webpage = VisitWebpageTool()
 
 # If the agent does not answer, the model is overloaded, please use another model or the following Hugging Face Endpoint that also contains qwen2.5 coder:
 # model_id='https://pflgm2locj2t89co.us-east-1.aws.endpoints.huggingface.cloud' 
@@ -61,6 +63,7 @@ agent = CodeAgent(
         final_answer,
         get_current_time_in_timezone,
         web_search,
+        visit_webpage,
     ],
     max_steps=6,
     verbosity_level=1,
