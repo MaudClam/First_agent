@@ -64,6 +64,7 @@ agent = CodeAgent(
         get_current_time_in_timezone,
         web_search,
         visit_webpage,
+        image_generation_tool,
     ],
     max_steps=6,
     verbosity_level=1,
