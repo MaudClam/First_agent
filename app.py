@@ -3,6 +3,7 @@ import datetime
 import requests
 import pytz
 import yaml
+import shutil
 import gradio as gr
 print("Gradio version:", gr.__version__)
 from tools.final_answer import FinalAnswerTool
