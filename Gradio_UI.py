@@ -271,7 +271,7 @@ class GradioUI:
                     None,
                     "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/communication/Alfred.png",
                 ),
-                resizeable=True,
+                resizable=True,
                 scale=1,
             )
             # If an upload folder is provided, enable the upload feature
