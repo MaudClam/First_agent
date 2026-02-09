@@ -1,5 +1,6 @@
 markdownify
 smolagents==1.13.0
+gradio==4.44.1
 requests
 ddgs
 pandas
