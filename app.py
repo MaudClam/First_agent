@@ -85,6 +85,7 @@ agent = CodeAgent(
         web_search,
         visit_webpage,
         image_generation_tool,
+        disk_free,
     ],
     max_steps=6,
     verbosity_level=1,
