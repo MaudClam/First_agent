@@ -3,6 +3,8 @@ import datetime
 import requests
 import pytz
 import yaml
+import gradio as gr
+print("Gradio version:", gr.__version__)
 from tools.final_answer import FinalAnswerTool
 from tools.web_search import DuckDuckGoSearchTool
 from tools.visit_webpage import VisitWebpageTool
