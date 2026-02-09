@@ -11,16 +11,34 @@ from tools.visit_webpage import VisitWebpageTool
 
 from Gradio_UI import GradioUI
 
-# Below is an example of a tool that does nothing. Amaze us with your creativity !
 @tool
-def my_custom_tool(arg1:str, arg2:int)-> str: #it's import to specify the return type
-    #Keep this format for the description / args / args description but feel free to modify the tool
-    """A tool that does nothing yet 
-    Args:
-        arg1: the first argument
-        arg2: the second argument
+def disk_free(path: str = "/") -> str:
     """
-    return "What magic will you build ?"
+    Show total/used/free disk space for a given filesystem path.
+    Args:
+        path: Filesystem path to inspect (e.g., '/', '/home/user').
+    Returns:
+        A human-friendly string with total/used/free sizes.
+    """
+    try:
+        usage = shutil.disk_usage(path)  # returns (total, used, free) in bytes
+    except Exception as e:
+        return f"Error reading disk usage for path='{path}': {e}"
+
+    def fmt_bytes(n: int) -> str:
+        # binary units (KiB, MiB, GiB...)
+        units = ["B", "KiB", "MiB", "GiB", "TiB", "PiB"]
+        x = float(n)
+        i = 0
+        while x >= 1024.0 and i < len(units) - 1:
+            x /= 1024.0
+            i += 1
+        return f"{x:.2f} {units[i]}"
+
+    total = fmt_bytes(usage.total)
+    used = fmt_bytes(usage.used)
+    free = fmt_bytes(usage.free)
+    return f"Disk usage for '{path}': total={total}, used={used}, free={free}"
 
 @tool
 def get_current_time_in_timezone(timezone: str) -> str:
