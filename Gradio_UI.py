@@ -266,7 +266,7 @@ class GradioUI:
             file_uploads_log = gr.State([])
             chatbot = gr.Chatbot(
                 label="Agent",
-                type="messages",
+                # type="messages",
                 avatar_images=(
                     None,
                     "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/communication/Alfred.png",
