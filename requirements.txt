@@ -1,6 +1,10 @@
 markdownify
 smolagents==1.13.0
-gradio==5.4.0
+gradio==6.5.1
+huggingface-hub>=0.33.5,<2.0
 requests
 ddgs
 pandas
+pytz
+pyyaml
+Pillow
