@@ -12,6 +12,13 @@ from tools.web_search import DuckDuckGoSearchTool
 from tools.visit_webpage import VisitWebpageTool
 from src.first_agent.ui import GradioUI
 
+import os
+if not os.getenv("HF_TOKEN"):
+    raise RuntimeError(
+        "HF_TOKEN is not set. "
+        "Create a .env file locally or configure it in Hugging Face Spaces → Settings → Secrets."
+    )
+
 # --- Runtime output directory setup ---
 BASE_DIR = Path.cwd()
 OUTPUT_DIR = BASE_DIR / "outputs" / "final_answers"
