@@ -1,0 +1,74 @@
+# =========================
+# macOS
+# =========================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+
+# =========================
+# dotenv / secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# IDEs
+# =========================
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# =========================
+# Xcode
+# =========================
+DerivedData/
+build/
+*.xcworkspace/
+*.xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+
+# Swift Package Manager
+.build/
+
+# =========================
+# Hugging Face / Gradio
+# =========================
+gradio_cached_examples/
+hf_cache/
+.cache/
