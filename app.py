@@ -4,13 +4,20 @@ import requests
 import pytz
 import yaml
 import shutil
+from pathlib import Path
 import gradio as gr
 print("Gradio version:", gr.__version__)
 from tools.final_answer import FinalAnswerTool
 from tools.web_search import DuckDuckGoSearchTool
 from tools.visit_webpage import VisitWebpageTool
-
 from src.first_agent.ui import GradioUI
+
+# --- Runtime output directory setup ---
+BASE_DIR = Path.cwd()
+OUTPUT_DIR = BASE_DIR / "outputs" / "final_answers"
+if OUTPUT_DIR.exists():
+    shutil.rmtree(OUTPUT_DIR)
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 @tool
 def disk_free(path: str = "/") -> str:

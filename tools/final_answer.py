@@ -15,17 +15,15 @@ class FinalAnswerTool(Tool):
     output_type = "any"
 
     def __init__(self, *args, **kwargs):
-        self.is_initialized = False
-        # Папка, где будем сохранять финальные изображения
-        self.output_dir = os.environ.get("FINAL_ANSWER_DIR", "/tmp/final_answers")
-        os.makedirs(self.output_dir, exist_ok=True)
+        super().__init__(*args, **kwargs)  # ВАЖНО
+        from pathlib import Path
+        self.output_dir = Path.cwd() / "outputs" / "final_answers"
+        self.output_dir.mkdir(parents=True, exist_ok=True)
 
     def forward(self, answer: Any) -> Any:
-        # Если уже нормализовано — не трогаем
         if isinstance(answer, (AgentImage, AgentText, AgentAudio)):
             return answer
 
-        # Если это PIL.Image (или PngImageFile и т.п.) — сохраним и вернем AgentImage(path)
         try:
             from PIL import Image  # pillow обычно уже есть из-за text-to-image
             if isinstance(answer, Image.Image):
@@ -34,7 +32,6 @@ class FinalAnswerTool(Tool):
                 answer.save(path, format="PNG")
                 return AgentImage(path)
         except Exception:
-            # Если pillow не установлен или что-то пошло не так — просто вернем как есть
             pass
 
         return answer

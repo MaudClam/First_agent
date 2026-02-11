@@ -3,6 +3,9 @@
 .env.*
 !.env.example
 
+# ===== Runtime outputs =====
+outputs/
+
 # ===== Python =====
 __pycache__/
 *.py[cod]
