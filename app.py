@@ -61,6 +61,15 @@ final_answer = FinalAnswerTool()
 web_search = DuckDuckGoSearchTool(max_results=10)
 visit_webpage = VisitWebpageTool()
 
+import os
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except Exception:
+    # On HF this is not necessary; there you can access env from Settings → Secrets
+    pass
+
+
 # If the agent does not answer, the model is overloaded, please use another model or the following Hugging Face Endpoint that also contains qwen2.5 coder:
 # model_id='https://pflgm2locj2t89co.us-east-1.aws.endpoints.huggingface.cloud' 
 
