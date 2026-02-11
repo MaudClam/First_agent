@@ -10,7 +10,7 @@ from tools.final_answer import FinalAnswerTool
 from tools.web_search import DuckDuckGoSearchTool
 from tools.visit_webpage import VisitWebpageTool
 
-from Gradio_UI import GradioUI
+from src.first_agent.ui import GradioUI
 
 @tool
 def disk_free(path: str = "/") -> str:
