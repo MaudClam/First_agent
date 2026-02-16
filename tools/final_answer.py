@@ -15,7 +15,7 @@ class FinalAnswerTool(Tool):
     output_type = "any"
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)  # ВАЖНО
+        super().__init__(*args, **kwargs)  # IMPORTANT
         from pathlib import Path
         self.output_dir = Path.cwd() / "outputs" / "final_answers"
         self.output_dir.mkdir(parents=True, exist_ok=True)
@@ -25,7 +25,7 @@ class FinalAnswerTool(Tool):
             return answer
 
         try:
-            from PIL import Image  # pillow обычно уже есть из-за text-to-image
+            from PIL import Image  # pillow is usually already there due to text-to-image
             if isinstance(answer, Image.Image):
                 filename = f"{uuid.uuid4().hex}.png"
                 path = os.path.join(self.output_dir, filename)
